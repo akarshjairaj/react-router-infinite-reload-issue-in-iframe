@@ -39,18 +39,12 @@
 
       <section class="iframe">
         <h3>IFRAME</h3>
-        <iframe
-          id="iFrameLink"
-          src=""
-          width="100%"
-          height="100%"
-          onload="loadIFrame()"
-        ></iframe>
+        <iframe id="iFrameLink" src="" width="100%" height="100%"></iframe>
       </section>
     </main>
 
     <script>
-      function loadIFrame() {
+      window.addEventListener("load", (event) => {
         const element = document.getElementById("iFrameLink");
         if (element) {
           // LOCAL
@@ -58,8 +52,9 @@
           // HOSTED
           element.src = "https://react-router-issue-app.web.app";
         }
-      }
-      document.getElementById("iFrameLink").onLoad = loadIFrame();
+
+        document.getElementById("iFrameLink").src = ssoLink;
+      });
     </script>
 
     <script>
