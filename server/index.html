@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Router Infinite Reload Issue In IFrame</title>
+    <style>
+      main {
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        height: 100vw;
+      }
+      section.intro {
+        display: flex;
+        flex-direction: column;
+      }
+      section.iframe {
+        width: 800px;
+        height: 500px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="intro">
+        <h1>React Router Infinite Reload Issue In iframe</h1>
+        <a
+          href="https://github.com/akarshjairaj/react-router-infinite-reload-issue-in-iframe"
+          target="_blank"
+          >Code Link</a
+        >
+        <a href="https://stackoverflow.com/questions/73169812" target="_blank"
+          >Stackoverflow Question Link</a
+        >
+      </section>
+
+      <section class="iframe">
+        <h3>IFRAME</h3>
+        <iframe
+          id="iFrameLink"
+          src=""
+          width="100%"
+          height="100%"
+          onload="loadIFrame()"
+        ></iframe>
+      </section>
+    </main>
+
+    <script>
+      function loadIFrame() {
+        const element = document.getElementById("iFrameLink");
+        if (element) {
+          // LOCAL
+          //   element.src = "http://localhost:3000/";
+          // HOSTED
+          element.src = "https://react-router-issue-app.web.app";
+        }
+      }
+      document.getElementById("iFrameLink").onLoad = loadIFrame();
+    </script>
+
+    <script>
+      console.log(`index.html first loaded at ${Date.now()}`);
+    </script>
+  </body>
+</html>
